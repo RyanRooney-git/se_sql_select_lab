@@ -16,14 +16,15 @@ print("-------------------End Employee Data-------------------")
 # STEP 2
 # Replace None with your code
 df_first_five = pd.read_sql("""
-                            SELECT * FROM employees""", conn).head()
+                            SELECT employeeNumber, lastName 
+                            FROM employees""", conn)
 print(df_first_five)
 
 # STEP 3
 # Replace None with your code
 df_five_reverse = pd.read_sql("""
                                 SELECT lastName, employeeNumber, firstName, extension, email, officeCode, reportsTo, jobTitle
-                                FROM employees""", conn).tail()
+                                FROM employees""", conn)
 print(df_five_reverse)
 
 # STEP 4
@@ -67,12 +68,12 @@ print("----------------End Order Details Data----------------")
 
 # STEP 8
 # Replace None with your code
-sum_total = pd.read_sql("""
+sum_total_price = pd.read_sql("""
 SELECT CAST(round(quantityOrdered * priceEach) AS INTEGER) AS total_amount
 FROM orderDetails
 """, conn).sum()
 
-print(sum_total)
+print(sum_total_price)
 
 # STEP 9
 # Replace None with your code
